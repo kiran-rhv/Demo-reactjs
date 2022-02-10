@@ -1,17 +1,15 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "./style.css";
-import paint from "../../assets/images/paint.jpg";
-import PageHeader from "./Header";
-import PageFooter from "./Footer";
+// import paint from "../../assets/images/paint.jpg";
+import paint from "../../../assets/images/paint.jpg";
 
-const CardItem = () => {
+const ProductCardItem = () => {
   return (
-    <div>
-      <PageHeader />
-      <div className="cardStyle">
+    <div className="mx-3">
+      <div className="container productCardStyle">
         <Card>
-          <Card.Img className="cardImage" variant="top" src={paint} />
+          <Card.Img className="productCardImage" variant="top" src={paint} />
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
             <Card.Text>
@@ -22,9 +20,8 @@ const CardItem = () => {
           </Card.Body>
         </Card>
       </div>
-      <PageFooter />
     </div>
   );
 };
 
-export default CardItem;
+export default ProductCardItem;

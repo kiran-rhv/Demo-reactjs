@@ -1,6 +1,7 @@
 import React from "react";
 import { Nav, NavDropdown, Navbar, Button } from "react-bootstrap";
 import { Form, FormControl } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 
 const PageHeader = () => {
@@ -14,10 +15,14 @@ const PageHeader = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
+              <Nav.Link as={NavLink} to="/products">
+                Products
+              </Nav.Link>
+              <Nav.Link as={NavLink} to="/artists">
+                Artists
+              </Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.1">Sales</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
                   Another action
                 </NavDropdown.Item>

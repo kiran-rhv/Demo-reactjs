@@ -1,0 +1,11 @@
+.productCardStyle {
+  width: 300px;
+  height: auto;
+  margin: 20px 0px 20px 0px;
+}
+
+.productCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
