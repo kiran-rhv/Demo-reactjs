@@ -1,0 +1,29 @@
+.loginForm {
+  width: 360px;
+  height: 420px;
+  color: black;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+}
+
+.userForm {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+}
+
+.btnLogin {
+  font-size: 18px;
+  border-radius: 30px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  left: 35%;
+}

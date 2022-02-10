@@ -2,12 +2,14 @@
 // import "./App.css";
 // import NewExpense from "./components/NewExpense";
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+// import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ArtPeople from "./components/Screens/Artists";
-import ProductCardItem from "./components/Screens/Products";
-import PageHeader from "./components/Layouts/Header";
-import PageFooter from "./components/Layouts/Footer";
+// import ArtPeople from "./components/Screens/Artists";
+// import ProductCardItem from "./components/Screens/Products";
+// import PageHeader from "./components/Layouts/Header";
+// import PageFooter from "./components/Layouts/Footer";
+
+import LoginScreen from "./containers/Login/Login";
 
 const App = () => {
   // const expenses = [
@@ -46,23 +48,21 @@ const App = () => {
     // <div>
     //   <NewExpense onAddExpense={addExpenseHandler} />
     //   <Expenses items={expenses} />
-    // </div>.
+    // </div>
+
+    // <div>
+    //   <PageHeader />
+    //   <main>
+    //     <Routes>
+    //       <Route path="/artists" element={<ArtPeople />} />
+    //       <Route path="/products" element={<ProductCardItem />} />
+    //     </Routes>
+    //   </main>
+    //   <PageFooter />
+    // </div>
 
     <div>
-      {/* <PageHeader />
-      <div className="d-flex flex-row">
-        <ProductCardItem />
-        <ProductCardItem />
-      </div>
-      <PageFooter /> */}
-      <PageHeader />
-      <main>
-        <Routes>
-          <Route path="/artists" element={<ArtPeople />} />
-          <Route path="/products" element={<ProductCardItem />} />
-        </Routes>
-      </main>
-      <PageFooter />
+      <LoginScreen />
     </div>
   );
 };
