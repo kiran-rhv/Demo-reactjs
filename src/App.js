@@ -10,8 +10,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import PageFooter from "./components/Layouts/Footer";
 
 import LoginScreen from "./containers/Login/Login";
+import RegisterScreen from "./containers/Register/Register";
+import { Route, Routes } from "react-router-dom";
+// import axios from "axios";
+
+// const api = axios.create({
+//   baseURL: `https://fakestoreapi.com/users`,
+// });
 
 const App = () => {
+  // class App extends Component {
+  //   constructor() {
+  //     super();
+  //     api.get("/").then((res) => {
+  //       console.log(res.data);
+  //     });
+  //   }
   // const expenses = [
   //   {
   //     id: "e1",
@@ -44,27 +58,32 @@ const App = () => {
   //   console.log(expense);
   // };
 
+  // return (
+  // <div>
+  //   <NewExpense onAddExpense={addExpenseHandler} />
+  //   <Expenses items={expenses} />
+  // </div>
+
+  // <div>
+  //   <PageHeader />
+  //   <main>
+  //     <Routes>
+  //       <Route path="/artists" element={<ArtPeople />} />
+  //       <Route path="/products" element={<ProductCardItem />} />
+  //     </Routes>
+  //   </main>
+  //   <PageFooter />
+  // </div>
+  // render() {
   return (
-    // <div>
-    //   <NewExpense onAddExpense={addExpenseHandler} />
-    //   <Expenses items={expenses} />
-    // </div>
-
-    // <div>
-    //   <PageHeader />
-    //   <main>
-    //     <Routes>
-    //       <Route path="/artists" element={<ArtPeople />} />
-    //       <Route path="/products" element={<ProductCardItem />} />
-    //     </Routes>
-    //   </main>
-    //   <PageFooter />
-    // </div>
-
     <div>
-      <LoginScreen />
+      <Routes>
+        <Route path="/" element={<LoginScreen />} />
+        <Route path="/register" element={<RegisterScreen />} />
+      </Routes>
     </div>
   );
 };
+// }
 
 export default App;
