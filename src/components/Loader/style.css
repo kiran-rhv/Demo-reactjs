@@ -1,0 +1,11 @@
+.fullwidthScrn {
+  width: 110vw;
+  height: 73vh;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  font-size: 20px;
+  overflow-x: hidden;
+}

@@ -12,78 +12,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import LoginScreen from "./containers/Login/Login";
 import RegisterScreen from "./containers/Register/Register";
 import { Route, Routes } from "react-router-dom";
-// import axios from "axios";
-
-// const api = axios.create({
-//   baseURL: `https://fakestoreapi.com/users`,
-// });
+// import Loader from "./components/Loader";
 
 const App = () => {
-  // class App extends Component {
-  //   constructor() {
-  //     super();
-  //     api.get("/").then((res) => {
-  //       console.log(res.data);
-  //     });
-  //   }
-  // const expenses = [
-  //   {
-  //     id: "e1",
-  //     title: "Tooth Brush",
-  //     amount: 30.12,
-  //     date: new Date(2020, 7, 14),
-  //   },
-  //   {
-  //     id: "e2",
-  //     title: "New TV",
-  //     amount: 45799.49,
-  //     date: new Date(2021, 2, 12),
-  //   },
-  //   {
-  //     id: "e3",
-  //     title: "Car Insurance",
-  //     amount: 5560.67,
-  //     date: new Date(2021, 2, 28),
-  //   },
-  //   {
-  //     id: "e4",
-  //     title: "New Desk (Wooden)",
-  //     amount: 2450,
-  //     date: new Date(2021, 5, 12),
-  //   },
-  // ];
-
-  // const addExpenseHandler = (expense) => {
-  //   console.log("In App.js");
-  //   console.log(expense);
-  // };
-
-  // return (
-  // <div>
-  //   <NewExpense onAddExpense={addExpenseHandler} />
-  //   <Expenses items={expenses} />
-  // </div>
-
-  // <div>
-  //   <PageHeader />
-  //   <main>
-  //     <Routes>
-  //       <Route path="/artists" element={<ArtPeople />} />
-  //       <Route path="/products" element={<ProductCardItem />} />
-  //     </Routes>
-  //   </main>
-  //   <PageFooter />
-  // </div>
-  // render() {
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/" element={<LoginScreen />} />
-        <Route path="/register" element={<RegisterScreen />} />
+        <Route exact path="/register" element={<RegisterScreen />} />
       </Routes>
-    </div>
+      {/* <Loader /> */}
+    </>
   );
 };
-// }
 
 export default App;
