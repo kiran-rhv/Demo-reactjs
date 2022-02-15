@@ -4,15 +4,14 @@
 import React from "react";
 // import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import ArtPeople from "./components/Screens/Artists";
-// import ProductCardItem from "./components/Screens/Products";
+import ArtPeople from "./components/Screens/Artists";
+import ProductCardItem from "./components/Screens/Products";
 // import PageHeader from "./components/Layouts/Header";
 // import PageFooter from "./components/Layouts/Footer";
 
 import LoginScreen from "./containers/Login/Login";
 import RegisterScreen from "./containers/Register/Register";
 import { Route, Routes } from "react-router-dom";
-// import Loader from "./components/Loader";
 
 const App = () => {
   return (
@@ -20,8 +19,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LoginScreen />} />
         <Route exact path="/register" element={<RegisterScreen />} />
+        <Route exact path="/artists" element={<ArtPeople />} />
+        <Route exact path="/products" element={<ProductCardItem />} />
       </Routes>
-      {/* <Loader /> */}
     </>
   );
 };

@@ -1,112 +1,107 @@
-import React, { useState } from "react";
+import React from "react";
 import "../Login/Login.css";
 import login from "../../assets/images/userlogin.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Loader from "../../components/Loader";
-import { Formik, Form, Field, yupToFormErrors } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { Button, Alert } from "react-bootstrap";
 
 const LoginScreen = () => {
-  const [formvalues, setformvalues] = useState({
-    name: "",
-    email: "",
-    password: "",
-    google_id: "",
-    type: "email",
-  });
-
-  const [isloading, setisloading] = useState(false);
-
-  const OnchangeHnadler = (event) => {
-    const { id, value } = event.target;
-    if (id === "email") {
-      setformvalues({
-        ...formvalues,
-        email: value,
-      });
-    }
-    if (id === "password") {
-      setformvalues({
-        ...formvalues,
-        password: value,
-      });
-    }
-  };
-
-  const loginHandler = (event) => {
-    event.preventDefault();
-    setisloading(true);
-    axios
-      .post("https://dbapi.dollarbirdinc.com/login", formvalues)
-      .then(function (response) {
-        console.log("Resp", response);
-        setisloading(false);
-      })
-      .catch(function (error) {
-        console.log("err", error);
-        setisloading(false);
-      });
-  };
-
   return (
-    <>
+    <div>
       <Formik
         initialValues={{
-          email: "",
+          EmailId: "",
+          google_id: "",
           password: "",
+          type: "",
         }}
         validationSchema={Yup.object({
-          email: Yup.string()
+          EmailId: Yup.string()
             .email("Invalid E-mail ID")
             .required("Please Enter E-mail ID"),
-
           password: Yup.string().required("Please Enter the Password"),
         })}
-      ></Formik>
-      {isloading && <Loader />}
-      <div className="loginForm">
-        <img className="logo" src={login} alt="user login logo" />
-        <h3 className="text-center mt-3">Login</h3>
-        <form className="mt-4 mx-auto userForm" onSubmit={loginHandler}>
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Email ID / Username"
-              aria-label="Email ID"
-              value={formvalues.email}
-              onChange={OnchangeHnadler}
-              id="email"
-              required
-            />
+        onSubmit={(values) => {
+          let email_id = values.EmailId;
+          let password = values.password;
+
+          axios({
+            method: "POST",
+            url: "https://dbapi.dollarbirdinc.com/login",
+            data: {
+              email: email_id,
+              google_id: "",
+              password: password,
+              type: "email",
+            },
+          })
+            .then((response) => {
+              console.log(response.data.msg);
+              if (response.data.statuscode == 200) {
+                const accesstoken = response.data.token;
+                console.log("Success");
+                localStorage.setItem("AccessToken", accesstoken);
+                window.location = "/products";
+              }
+            })
+            .catch((err) => {
+              console.log("POST err", err);
+            });
+        }}
+      >
+        {(props) => (
+          <div className="loginForm">
+            <img className="logo" src={login} alt="user login logo" />
+            <h3 className="text-center mt-3">Login</h3>
+            <Form className="mt-4 mx-auto userForm">
+              <div className="input-group mb-3">
+                <Field
+                  type="text"
+                  className="form-control"
+                  placeholder="Email ID / Username"
+                  aria-label="Email ID"
+                  id="email"
+                  name="EmailId"
+                  autoComplete="off"
+                ></Field>
+                <div className="errorMsg">
+                  <ErrorMessage name="EmailId"></ErrorMessage>
+                </div>
+              </div>
+              <div className="input-group mb-3">
+                <Field
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                  aria-label="Password"
+                  id="password"
+                  name="password"
+                ></Field>
+                <div className="errorMsg">
+                  <ErrorMessage name="password"></ErrorMessage>
+                </div>
+              </div>
+              <Button
+                varient="primary"
+                className="btn mx-auto w-50 d-flex justify-content-center align-items-center btnLogin"
+                disabled={props.isValid == false}
+                type="submit"
+              >
+                Login
+              </Button>
+              <div className="mt-3 mx-1 pt-2">
+                <Link className="font-italic" to="/register">
+                  Sign Up
+                </Link>
+              </div>
+            </Form>
           </div>
-          <div className="input-group mb-3">
-            <input
-              type="password"
-              className="form-control border-top-0 border-left-0 border-right-0"
-              placeholder="Password"
-              aria-label="Password"
-              value={formvalues.password}
-              onChange={OnchangeHnadler}
-              id="password"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="btn btn-success mx-auto w-50 d-flex justify-content-center align-items-center btnLogin"
-          >
-            Login
-          </button>
-          <div className="mt-3 mx-1 border-top pt-2">
-            <Link className="font-italic" to="/register">
-              Sign Up
-            </Link>
-          </div>
-        </form>
-      </div>
-    </>
+        )}
+      </Formik>
+      {/* <Alert variant="danger">Error</Alert> */}
+    </div>
   );
 };
 

@@ -35,3 +35,9 @@
   position: relative;
   left: 35%;
 }
+
+.errorMsg {
+  text-align: right;
+  color: red;
+  font-size: 18px;
+}
