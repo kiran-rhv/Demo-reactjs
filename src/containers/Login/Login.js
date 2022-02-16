@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Button, Alert } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const LoginScreen = () => {
   return (
@@ -25,7 +25,9 @@ const LoginScreen = () => {
         })}
         onSubmit={(values) => {
           let email_id = values.EmailId;
+          console.log("Mail ID is : ", email_id);
           let password = values.password;
+          console.log("Password : ", password);
 
           axios({
             method: "POST",
@@ -41,9 +43,11 @@ const LoginScreen = () => {
               console.log(response.data.msg);
               if (response.data.statuscode == 200) {
                 const accesstoken = response.data.token;
-                console.log("Success");
+                console.log("Success", response);
                 localStorage.setItem("AccessToken", accesstoken);
                 window.location = "/products";
+              } else {
+                console.log("res--", response);
               }
             })
             .catch((err) => {
