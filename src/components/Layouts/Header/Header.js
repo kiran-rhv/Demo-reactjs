@@ -1,22 +1,23 @@
-import React, { useState } from "react";
-import { Nav, NavDropdown, Navbar, Button } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import HomeLogo from "../../../assets/images/logo_home.png";
 import UserLogo from "../../../assets/images/user_profile.png";
-// import sidenavbarmenu from "../../../assets/images/menu.png";
-// import SideNavbar from "../../../containers/SideNavbar/SideNavbar";
-// import "./Header.css";
+import { AppContext } from "../../../Context/Appcontext";
+import sidenavbarmenu from "../../../assets/images/menu.png";
+import "./Header.css";
 
 const PageHeader = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-
+  const { showSideBar, setshowSideBar } = useContext(AppContext);
+  const Handle_click = () => {
+    setshowSideBar(!showSideBar);
+  };
   return (
     <div>
       <Navbar bg="light" variant="light" expand="lg">
         <div className="container-fluid">
           {/* --------------- Sidebar menu logo Start --------------- */}
-          {/* <div className="mr-4 menu-toggle" onClick={toggle}>
+          <div className="mr-4 menu-toggle" onClick={Handle_click}>
             <img
               src={sidenavbarmenu}
               width="30"
@@ -24,12 +25,7 @@ const PageHeader = () => {
               className="d-inline-block align-top"
               alt="Sidebar menu logo"
             />
-          </div> */}
-
-          <Button className="menu-toggle" onClick={toggle}>
-            <span className="{`sidebar ${isOpen ? 'cross' : 'hamburger'}}"></span>
-          </Button>
-
+          </div>
           {/* --------------- Sidebar menu logo End --------------- */}
 
           {/* --------------- Navbar company logo Start --------------- */}
@@ -47,16 +43,25 @@ const PageHeader = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <NavDropdown title="Profile" id="basic-nav-dropdown">
-                <img
-                  src={UserLogo}
-                  class="mr-2 img img-fluid"
-                  width="30"
-                  height="30"
-                  alt="user profile"
-                />
-                Profile
-                <NavDropdown.Item href="#action/3.2">SignOut</NavDropdown.Item>
+              <NavDropdown
+                title={
+                  <span className="pr-1">
+                    <img
+                      className="thumbnail-image pr-2"
+                      src={UserLogo}
+                      alt="user pic"
+                    />
+                    User Name
+                  </span>
+                }
+                id="basic-nav-dropdown"
+              >
+                <NavDropdown.Item as={Link} to="/home">
+                  Settings
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/">
+                  SignOut
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

@@ -12,17 +12,20 @@ import HomeScreen from "./containers/Home/home";
 import LoginScreen from "./containers/Login/Login";
 import RegisterScreen from "./containers/Register/Register";
 import { Route, Routes } from "react-router-dom";
+import AppcontextProvider from "./Context/Appcontext";
 
 const App = () => {
   return (
     <>
-      <Routes>
-        <Route exact path="/" element={<LoginScreen />} />
-        <Route exact path="/home" element={<HomeScreen />} />
-        <Route exact path="/register" element={<RegisterScreen />} />
-        <Route exact path="/artists" element={<ArtPeople />} />
-        <Route exact path="/products" element={<ProductCardItem />} />
-      </Routes>
+      <AppcontextProvider>
+        <Routes>
+          <Route exact path="/" element={<LoginScreen />} />
+          <Route exact path="/home" element={<HomeScreen />} />
+          <Route exact path="/register" element={<RegisterScreen />} />
+          <Route exact path="/artists" element={<ArtPeople />} />
+          <Route exact path="/products" element={<ProductCardItem />} />
+        </Routes>
+      </AppcontextProvider>
     </>
   );
 };
