@@ -14,7 +14,7 @@ const PageHeader = () => {
   };
   return (
     <div>
-      <Navbar bg="light" variant="light" expand="lg">
+      <Navbar bg="dark" variant="light" expand="lg">
         <div className="container-fluid">
           {/* --------------- Sidebar menu logo Start --------------- */}
           <div className="mr-4 menu-toggle" onClick={Handle_click}>
@@ -45,7 +45,7 @@ const PageHeader = () => {
             <Nav className="ml-auto">
               <NavDropdown
                 title={
-                  <span className="pr-1">
+                  <span className="pr-1 text-white">
                     <img
                       className="thumbnail-image pr-2"
                       src={UserLogo}
