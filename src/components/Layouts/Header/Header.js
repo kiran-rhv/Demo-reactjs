@@ -13,7 +13,7 @@ const PageHeader = () => {
     setshowSideBar(!showSideBar);
   };
   return (
-    <div>
+    <div className={showSideBar ? "navbarToggleOpen" : "navbarToggleClose"}>
       <Navbar bg="dark" variant="light" expand="lg">
         <div className="container-fluid">
           {/* --------------- Sidebar menu logo Start --------------- */}
@@ -22,7 +22,7 @@ const PageHeader = () => {
               src={sidenavbarmenu}
               width="30"
               height="30"
-              className="d-inline-block align-top"
+              className="align-top"
               alt="Sidebar menu logo"
             />
           </div>

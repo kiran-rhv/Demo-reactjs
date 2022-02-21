@@ -1,3 +1,26 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 .menu-toggle {
   cursor: pointer;
+}
+
+.navbarToggleOpen {
+  width: 81.7%;
+  transform: translateX(250px);
+  transition: all 0.3s ease;
+}
+
+.navbarToggleOpen img {
+  display: none;
+}
+
+.navbarToggleClose {
+  width: 100%;
+  transform: translateX(0px);
+  transition: all 0.3s ease;
 }
