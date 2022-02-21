@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Button } from "react-bootstrap";
-import "./style.css";
-// import paint from "../../assets/images/paint.jpg";
+import "./Products.css";
 import paint from "../../../assets/images/paint.jpg";
+import { AppContext } from "../../../Context/Appcontext";
 
 const ProductCardItem = () => {
+  const { showSideBar, setshowSideBar } = useContext(AppContext);
+  // const sideBarShow = () => setshowSideBar(!showSideBar);
+
   return (
-    <div className="mx-3">
+    <div className={showSideBar ? "navbarToggleOpen" : "navbarToggleClose"}>
       <div className="container productCardStyle">
         <Card>
           <Card.Img className="productCardImage" variant="top" src={paint} />

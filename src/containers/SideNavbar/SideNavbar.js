@@ -10,8 +10,8 @@ const SideNavbar = () => {
 
   return (
     <div className={showSideBar ? "show_sidebar" : "sidebar"}>
-      <div onClick={sideBarShow}>
-        <div className=" float-right">
+      <div>
+        <div className=" float-right" onClick={sideBarShow}>
           <Link to="/home" className="btnClose">
             &times;
           </Link>
