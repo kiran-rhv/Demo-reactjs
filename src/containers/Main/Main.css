@@ -1,0 +1,11 @@
+.navbarToggleOpen {
+  width: 82%;
+  transform: translateX(250px);
+  transition: all 0.3s ease;
+}
+
+.navbarToggleClose {
+  width: 100%;
+  transform: translateX(0px);
+  transition: all 0.3s ease;
+}

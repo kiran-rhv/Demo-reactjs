@@ -1,10 +1,9 @@
 import React from "react";
-import SideNavbar from "../SideNavbar/SideNavbar";
 
 const HomeScreen = () => {
   return (
     <div>
-      <SideNavbar />
+      <h1>Welcome to home page</h1>
     </div>
   );
 };

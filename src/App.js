@@ -8,7 +8,8 @@ import RegisterScreen from "./containers/Register/Register";
 import { Route, Routes } from "react-router-dom";
 import AppcontextProvider from "./Context/Appcontext";
 import PageHeader from "./components/Layouts/Header/Header";
-import SideNavbar from "./containers/SideNavbar/SideNavbar";
+import UserScreen from "./containers/Users/User";
+// import Main from "./containers/Main/Main";
 // import PageFooter from "./components/Layouts/Footer/Footer";
 
 const App = () => {
@@ -16,13 +17,14 @@ const App = () => {
     <>
       <AppcontextProvider>
         <PageHeader />
-        <SideNavbar />
+        {/* <Main /> */}
         <Routes>
           <Route exact path="/" element={<LoginScreen />} />
           <Route exact path="/home" element={<HomeScreen />} />
           <Route exact path="/register" element={<RegisterScreen />} />
           <Route exact path="/artists" element={<ArtPeople />} />
           <Route exact path="/products" element={<ProductCardItem />} />
+          <Route exact path="/Users" element={<UserScreen />} />
         </Routes>
         {/* <PageFooter /> */}
       </AppcontextProvider>

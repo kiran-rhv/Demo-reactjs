@@ -12,9 +12,7 @@ const SideNavbar = () => {
     <div className={showSideBar ? "show_sidebar" : "sidebar"}>
       <div>
         <div onClick={sideBarShow}>
-          <Link to="/products" className="btnClose">
-            &times;
-          </Link>
+          <span className="btnClose">&times;</span>
         </div>
         <div className="p-0">
           <Link to="/home" className="menuLink pl-4 mt-5">
@@ -22,7 +20,7 @@ const SideNavbar = () => {
           </Link>
         </div>
         <div className="p-0">
-          <Link to="/home" className="menuLink pl-4">
+          <Link to="/users" className="menuLink pl-4">
             <span>Users</span>
           </Link>
         </div>
