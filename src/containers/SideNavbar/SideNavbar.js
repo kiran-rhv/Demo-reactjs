@@ -11,8 +11,8 @@ const SideNavbar = () => {
   return (
     <div className={showSideBar ? "show_sidebar" : "sidebar"}>
       <div>
-        <div className=" float-right" onClick={sideBarShow}>
-          <Link to="/home" className="btnClose">
+        <div onClick={sideBarShow}>
+          <Link to="/products" className="btnClose">
             &times;
           </Link>
         </div>
@@ -27,7 +27,7 @@ const SideNavbar = () => {
           </Link>
         </div>
         <div className="p-0">
-          <Link to="/Products" className="menuLink pl-4">
+          <Link to="/products" className="menuLink pl-4">
             <span>Products</span>
           </Link>
         </div>
